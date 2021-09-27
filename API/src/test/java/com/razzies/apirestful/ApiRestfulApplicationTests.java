@@ -1,10 +1,10 @@
-package com.razzies.GoldenRaspberryAwardsAPIRESTful;
+package com.razzies.apirestful;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GoldenRaspberryAwardsApiResTfulApplicationTests {
+class ApiRestfulApplicationTests {
 
 	@Test
 	void contextLoads() {

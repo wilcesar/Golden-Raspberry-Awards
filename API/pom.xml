@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
+		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.razzies</groupId>
-	<artifactId>Golden-Raspberry-Awards-API-RESTful</artifactId>
+	<artifactId>api-restful</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Golden-Raspberry-Awards-API-RESTful</name>
-	<description>API RESTful para leitura de indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards</description>
+	<name>api-restful</name>
+	<description>API RESTful do pior filme do Golden Raspberry Awards</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -35,11 +35,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>4.2</version>
 		</dependency>
 	</dependencies>
 

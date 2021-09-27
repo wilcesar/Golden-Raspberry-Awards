@@ -1,9 +1,9 @@
-package com.razzies.GoldenRaspberryAwardsAPIRESTful.model;
+package com.razzies.apirestful.model;
 
 import javax.persistence.*;
 
-@Entity(name = "movielist")
-public class MovieModel {
+@Entity(name = "Movies")
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -40,16 +40,16 @@ public class MovieModel {
         this.title = title;
     }
 
-    public Integer getYear() {
-        return year;
-    }
-
     public String getStudios() {
         return studios;
     }
 
     public void setStudios(String studios) {
         this.studios = studios;
+    }
+
+    public Integer getYear() {
+        return year;
     }
 
     public void setYear(Integer year) {
@@ -70,8 +70,5 @@ public class MovieModel {
 
     public void setWinner(String winner) {
         this.winner = winner;
-    }
-    public String toString() {
-        return "Movie{title='" + title + "\', year=" + year + ", winner='" + winner + "\'}";
     }
 }
