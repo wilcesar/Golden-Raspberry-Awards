@@ -2,7 +2,8 @@ package com.razzies.apirestful.model;
 
 import javax.persistence.*;
 
-@Entity(name = "Movies")
+@Entity
+@Table(name = "Movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
