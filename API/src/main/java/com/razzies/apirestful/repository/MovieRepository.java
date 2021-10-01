@@ -14,8 +14,8 @@ import java.util.ArrayList;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Integer> {
 
-    @Query("SELECT m.producers FROM Movie m where m.winner = 'yes' group by m.producers")
-    ArrayList producersMovies();
+    @Query(value = "SELECT array_agg(m.producers) as chields FROM Movies m where m.winner = 'yes'", nativeQuery = true)
+    String producersMovies();
 
     @Query("SELECT m FROM Movie m where m.winner = 'yes' and m.producers = :producers order by m.year")
     ArrayList<Movie> moviesByProducers(@Param("producers") String producers);
@@ -23,4 +23,6 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
     @Query("SELECT m FROM Movie m where m.winner = 'yes' and m.producers = :producers  and m.year > :year order by m.year")
     ArrayList<Movie> nextMovies(@Param("producers") String producers, @Param("year") Integer year );
 
+    @Query("SELECT m FROM Movie m where m.winner = 'yes' and m.year = :year")
+    Movie winnerFronYear(@Param("year") Integer year);
 }

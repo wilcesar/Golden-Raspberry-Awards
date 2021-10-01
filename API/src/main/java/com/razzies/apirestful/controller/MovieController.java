@@ -3,10 +3,7 @@ package com.razzies.apirestful.controller;
 import com.razzies.apirestful.model.Movie;
 import com.razzies.apirestful.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -38,9 +35,10 @@ public class MovieController {
 
     @GetMapping(path = "/movie/producers")
     public String producers(){
-        ArrayList producersMovies =movieRrepository.producersMovies();
-        producersMovies.forEach(prod->{
-            /*ArrayList<Movie> moviesProducers = movieRrepository.moviesByProducers(prod.toString());
+        String producersString =movieRrepository.producersMovies();
+        String[] producers = new String[]{producersString};
+        /*producersMovies.forEach(prod->{
+            ArrayList<Movie> moviesProducers = movieRrepository.moviesByProducers(prod.toString());
             if(moviesProducers.size() > 1){
                 moviesProducers.forEach(movie->{
                     ArrayList<Movie> nextMovie = movieRrepository.nextMovies(movie.getProducers(), movie.getYear());
@@ -59,10 +57,14 @@ public class MovieController {
                     };
 
                 });
-            }*/
-        });
-
+            }
+        });*/
         return "foi";
+    }
+    @GetMapping(path = "/movie/winner/{year}")
+    public Movie winnerFronYear(@PathVariable("year") Integer year){
+    return movieRrepository.winnerFronYear(year);
+
     }
     @GetMapping(path = "/movie/carregar")
     public Boolean carregar(){
