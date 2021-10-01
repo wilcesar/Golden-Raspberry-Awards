@@ -33,38 +33,13 @@ public class MovieController {
         return movieRrepository.save(movie);
     }
 
-    @GetMapping(path = "/movie/producers")
-    public String producers(){
-        String producersString =movieRrepository.producersMovies();
-        String[] producers = new String[]{producersString};
-        /*producersMovies.forEach(prod->{
-            ArrayList<Movie> moviesProducers = movieRrepository.moviesByProducers(prod.toString());
-            if(moviesProducers.size() > 1){
-                moviesProducers.forEach(movie->{
-                    ArrayList<Movie> nextMovie = movieRrepository.nextMovies(movie.getProducers(), movie.getYear());
-                    if (Math.abs(movie.getYear() * nextMovie.get(0).getYear())>maxFif){
-                        maxFif = Math.abs(movie.getYear() * nextMovie.get(0).getYear());
-                        maxProducers = movie.getProducers();
-                        maxMovie1 = movie.getTitle();
-                        maxMovie2 = nextMovie.get(0).getTitle();
-                    };
-
-                    if(Math.abs(movie.getYear() * nextMovie.get(0).getYear())<minDif){
-                        minDif = Math.abs(movie.getYear() * nextMovie.get(0).getYear());
-                        minProducers = movie.getProducers();
-                        minMovie1 = movie.getTitle();
-                        minMovie2 = nextMovie.get(0).getTitle();
-                    };
-
-                });
-            }
-        });*/
-        return "foi";
+    @GetMapping(path = "/movie/producers/{producer}")
+    ArrayList<Movie> producerMovies(@PathVariable("producer") String producer){
+        return movieRrepository.moviesByProducer(producer);
     }
     @GetMapping(path = "/movie/winner/{year}")
     public Movie winnerFronYear(@PathVariable("year") Integer year){
-    return movieRrepository.winnerFronYear(year);
-
+        return movieRrepository.winnerFronYear(year);
     }
     @GetMapping(path = "/movie/carregar")
     public Boolean carregar(){
