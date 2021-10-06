@@ -37,6 +37,10 @@ public class MovieController {
     ArrayList<Movie> producerMovies(@PathVariable("producer") String producer){
         return movieRrepository.moviesByProducer(producer);
     }
+    @GetMapping(path = "/nominees/{year}")
+    ArrayList<Movie> nomineesMovies(@PathVariable("year") Integer year){
+        return movieRrepository.nomineesByYear(year);
+    }
     @GetMapping(path = "/movie/winner/{year}")
     public Movie winnerFronYear(@PathVariable("year") Integer year){
         return movieRrepository.winnerFronYear(year);

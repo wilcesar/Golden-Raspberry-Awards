@@ -20,6 +20,9 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
     @Query("SELECT m FROM Movie m where m.winner = 'yes' and m.producers like '%:producer%'  order by m.year")
     ArrayList<Movie> moviesByProducer(@Param("producer") String producer);
 
+    @Query("SELECT m FROM Movie m where m.year = :year")
+    ArrayList<Movie> nomineesByYear(@Param("year") Integer year);
+
     @Query("SELECT m FROM Movie m where m.winner = 'yes' and m.producers = :producers  and m.year > :year order by m.year")
     ArrayList<Movie> nextMovies(@Param("producers") String producers, @Param("year") Integer year );
 
