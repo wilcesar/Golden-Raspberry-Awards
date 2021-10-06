@@ -41,6 +41,10 @@ public class MovieController {
     ArrayList<Movie> nomineesMovies(@PathVariable("year") Integer year){
         return movieRrepository.nomineesByYear(year);
     }
+    @GetMapping(path = "/winners")
+    ArrayList<Movie> winnersMovies(){
+        return movieRrepository.moviesWinner();
+    }
     @GetMapping(path = "/movie/winner/{year}")
     public Movie winnerFronYear(@PathVariable("year") Integer year){
         return movieRrepository.winnerFronYear(year);
